@@ -19,7 +19,7 @@ class _MessagePageState extends State<MessagePage> {
 
   String _title = '';
   int _currentPage = 1;
-  int _pageSize = 20;
+  final int _pageSize = 20;
 
   /// 是否正在加载
   bool _isLoadingNew = false;
@@ -114,7 +114,7 @@ class _MessagePageState extends State<MessagePage> {
   void _onTap(int index) {
     // item 点击回调
     print('$index 点击');
-    Navigator.of(context).pushNamed("/home");
+    MainManager.mainManager.appChannel.pushFlutterPage("/home");
   }
 
   /// 列表的item样式

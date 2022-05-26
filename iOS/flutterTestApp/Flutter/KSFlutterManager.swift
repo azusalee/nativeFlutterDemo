@@ -12,26 +12,24 @@ import Flutter
 class KSFlutterManager {
     static let sharedInstance = KSFlutterManager()
     
-    let flutterEngine = FlutterEngine(name: "zeek flutter engine")
+    let flutterEngine = FlutterEngine(name: "zeek_flutter_engine")
     
     var channelHandler: KSFlutterChannelHandler?
     
+    //let engineGroup = FlutterEngineGroup(name: "zeek_engine_group", project: nil)
+    
+    /// 初始化
     func setup() {
         // 测试 初始化要 5秒多(初始化完成前，跳到flutter页面会黑屏，而且通道的传送的数据也是无效的)
         KSFlutterManager.sharedInstance.flutterEngine.run()
+        // 必须要run了才可以设置channel
         self.channelHandler = KSFlutterChannelHandler.init(engine: flutterEngine)
+        
     }
     
     /// 跳转FlutterViewController时注意不要连续跳转多次，有可能会出问题
-    /// 通道不可用时(未初始化完成)，返回nil
-    func createFlutterViewController(route: KSFlutterPageRouteName) -> UIViewController? {
-        if self.channelHandler?.isChannelCanUse() != true {
-            // 通道不可用，不跳转
-            return nil
-        }
-        KSFlutterManager.sharedInstance.channelHandler?.changeRootRoute(routeName: route)
-        
-        let vc = FlutterViewController(engine: KSFlutterManager.sharedInstance.flutterEngine, nibName: nil, bundle: nil)
+    func createFlutterViewController(route: KSFlutterPageRouteName) -> UIViewController {
+        let vc = KSFlutterContainerViewController.init(routeName: route)
         return vc
     }
     

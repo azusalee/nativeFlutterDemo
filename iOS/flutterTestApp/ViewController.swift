@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.white
+        
         // 加一个flutter的入口按钮
         let button = UIButton.init(frame: CGRect.init(origin: CGPoint.init(x: 100, y: 100), size: CGSize.init(width: 150, height: 50)))
         button.setTitle("flutter页面", for: .normal)
@@ -22,15 +24,13 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @objc
     func flutterButtonDidTap(_ sender: UIButton) {
-        if let vc = KSFlutterManager.sharedInstance.createFlutterViewController(route: .message) {
-            self.navigationController?.pushViewController(vc, animated: true)
-            self.navigationController?.isNavigationBarHidden = true
-        }
+        let vc = KSFlutterManager.sharedInstance.createFlutterViewController(route: .message)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

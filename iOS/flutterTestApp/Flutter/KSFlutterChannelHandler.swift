@@ -5,8 +5,9 @@
 //  Created by lizihong on 2022/5/24.
 //
 
-import Foundation
+import UIKit
 import Flutter
+import AZLExtendSwift
 
 /// 处理与flutter通信的类
 class KSFlutterChannelHandler {
@@ -18,6 +19,9 @@ class KSFlutterChannelHandler {
     
     /// 是否已经收到flutter传来的第一条信息(用于确认通道是否已经初始化完成)
     private var _isGetFirstMessage: Bool = false
+    
+    /// 通道初始化完成回调
+    var channelSetupCallback: (() -> Void)?
     
     /// 创建
     init(engine: FlutterEngine) {
@@ -41,7 +45,10 @@ class KSFlutterChannelHandler {
         // 消息回调监听
         self.messageChannel.setMessageHandler { [weak self] message, result in
             print("收到flutter信息: \(String(describing: message))")
-            self?._isGetFirstMessage = true
+            if let messageString = message as? String, messageString == KSFromFlutterMessageName.channelSetup.rawValue {
+                self?._isGetFirstMessage = true
+                self?.channelSetupCallback?()
+            }
             result("native已收到")
         }
         
@@ -53,13 +60,33 @@ class KSFlutterChannelHandler {
             if method == .getLocalizeName {
                 if let localizeKey: String = call.arguments as? String {
                     result(NSLocalizedString(localizeKey, comment: ""))
+                } else {
+                    result("")
                 }
             } else if method == .requestMessageList {
                 if let dict = call.arguments as? [String: Any], let page = dict["page"] as? Int, 
                     let pageSize = dict["page_size"] as? Int {
                     result(self.requestMessageList(page: page, pageSize: pageSize))
+                } else {
+                    result("")
                 }
-            } else {
+            } else if method == .pushNativePage {
+                if let pageName: String = call.arguments as? String {
+                    if let appRoute = AppRoutes.init(rawValue: pageName), let vcClass = appRoute.viewControllerClass() {
+                        UIViewController.azl_topViewControllerInApp()?.navigationController?.pushViewController(vcClass.init(), animated: true)
+                    }
+                }
+                result("")
+            } else if method == .pushFlutterPage {
+                if let pageName: String = call.arguments as? String {
+                    if let route = KSFlutterPageRouteName.init(rawValue: pageName) {
+                        let vc = KSFlutterManager.sharedInstance.createFlutterViewController(route: route)
+                        UIViewController.azl_topViewControllerInApp()?.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+                result("")
+            }
+            else {
                 // 没实现对应方法
                 result(FlutterMethodNotImplemented)
             }

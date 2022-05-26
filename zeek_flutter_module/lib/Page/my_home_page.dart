@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../Constant/APPMethods.dart';
 import '../Manager/main_manager.dart';
 import '../Utils/ViewUtils.dart';
+import '../Constant/APPRoutes.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
-    Navigator.of(context).pushNamed("/message");
+    MainManager.mainManager.appChannel.pushNativePage(APPRoutes.home);
   }
 
   @override

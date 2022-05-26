@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '14.0'
 
@@ -11,5 +13,7 @@ target 'flutterTestApp' do
 
   # Pods for flutterTestApp
   install_all_flutter_pods(flutter_application_path)
+
+  pod 'AZLExtendSwift'
 
 end

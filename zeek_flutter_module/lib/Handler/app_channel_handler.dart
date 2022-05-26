@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../Constant/APPMethods.dart';
 import 'dart:convert';
 import '../Constant/APPMessages.dart';
 import '../Constant/Routes.dart';
@@ -44,5 +45,15 @@ class AppChannelHandler {
     eventChannel.receiveBroadcastStream().listen((event) {
 
     });
+  }
+
+  /// 让原生跳转指定页面
+  void pushNativePage(String nativeRoute) {
+    this.methodChannel.invokeMethod(APPMethods.pushNativePage, nativeRoute);
+  }
+
+  /// 让原生跳指定flutter页面
+  void pushFlutterPage(String flutterRoute) {
+      this.methodChannel.invokeMethod(APPMethods.pushFlutterPage, flutterRoute);
   }
 }
