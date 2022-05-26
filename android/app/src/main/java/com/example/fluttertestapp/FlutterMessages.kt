@@ -12,5 +12,5 @@ object FlutterMessages {
 
     /// 更换flutter的根页面
     /// 带参数String，更换的页面的Route Key
-    final var changeRootRoute = "changeRootRoute"
+    const val changeRootRoute = "changeRootRoute"
 }

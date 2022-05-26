@@ -40,19 +40,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 添加flutterEngine缓存，优化跳转flutter页时的体验
-        // Instantiate a FlutterEngine.
         flutterEngine = FlutterEngine(this)
         flutterEngine.navigationChannel.setInitialRoute("/message");
-        // Start executing Dart code to pre-warm the FlutterEngine.
         flutterEngine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
         )
 
-        // Cache the FlutterEngine to be used by FlutterActivity.
         FlutterEngineCache
             .getInstance()
             .put("zeek_flutter_engine", flutterEngine)
 
+        // 绑定通道处理
         FlutterChannelHandler.setupEngine(flutterEngine)
     }
 

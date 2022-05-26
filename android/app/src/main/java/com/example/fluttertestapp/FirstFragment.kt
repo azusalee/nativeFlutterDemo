@@ -36,7 +36,7 @@ class FirstFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-            FlutterChannelHandler.changeFlutterRootRoute(FlutterRoutes.home)
+            FlutterChannelHandler.changeFlutterRootRoute(FlutterRoutes.message)
             startActivity(FlutterActivity
                 .withCachedEngine("zeek_flutter_engine")
                 .build(this.requireContext()))
