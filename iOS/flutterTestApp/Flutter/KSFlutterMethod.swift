@@ -19,16 +19,6 @@ struct KSFlutterMethod: RawRepresentable, Equatable {
     /// 返回数据数组(字符串形式)
     static let requestMessageList = KSFlutterMethod(rawValue: "requestMessageList")
     
-    /// push到指定原生页面
-    /// 带原生页面的路由字符串
-    /// 返回空字符串
-    static let pushNativePage = KSFlutterMethod(rawValue: "pushNativePage")
-    
-    /// push到指定Flutter页面
-    /// 带Flutter页面的路由字符串
-    /// 返回空字符串
-    static let pushFlutterPage = KSFlutterMethod(rawValue: "pushFlutterPage")
-    
     /// 原始值
     public let rawValue: String
     

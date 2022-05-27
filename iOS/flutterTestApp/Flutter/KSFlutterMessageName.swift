@@ -17,7 +17,7 @@ import Foundation
  }
  */
 enum KSToFlutterMessageName: String {
-    /// 更换flutter的根页面
+    /// 更换flutter的根页面(已经不用了)
     /// 带参数String，更换的页面的Route Key
     case changeRootRoute
     

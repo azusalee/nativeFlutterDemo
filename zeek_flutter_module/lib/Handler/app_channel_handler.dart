@@ -22,23 +22,7 @@ class AppChannelHandler {
       Map dict = json.decode(message);
       String messageName = dict["message"];
       print('信息名 $messageName');
-      if (messageName == APPMessages.changeRootRoute) {
-        // String data = dict["data"];
-        // // 更换根页面
-        // print('更换页面 $data');
-        // // 不要过场动画
-        // var pageBuilder = Routes.routes[data];
-        // if (pageBuilder != null) {
-        //   PageRouteBuilder route = PageRouteBuilder(
-        //       transitionDuration: Duration(milliseconds: 0),
-        //       pageBuilder: (BuildContext context,
-        //           Animation<double> animation,
-        //           Animation<double> secondaryAnimation)
-        //       { return pageBuilder!(context); });
-        //   Routes.navigatorKey.currentState?.pushAndRemoveUntil(route, (route) => false);
-        // }
-        //Routes.navigatorKey.currentState?.pushNamedAndRemoveUntil(data, (route) => false);
-      }
+
       return '收到Natvie数据';
     });
     //Navigator.of(context);

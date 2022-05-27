@@ -70,14 +70,7 @@ class KSFlutterChannelHandler {
                 } else {
                     result("")
                 }
-            } else if method == .pushNativePage {
-                if let pageName: String = call.arguments as? String {
-                    if let appRoute = AppRoutes.init(rawValue: pageName), let vcClass = appRoute.viewControllerClass() {
-                        UIViewController.azl_topViewControllerInApp()?.navigationController?.pushViewController(vcClass.init(), animated: true)
-                    }
-                }
-                result("")
-            } 
+            }
             else {
                 // 没实现对应方法
                 result(FlutterMethodNotImplemented)
@@ -103,13 +96,13 @@ extension KSFlutterChannelHandler {
     }
     
     /// 更换flutter根页面
-    func changeRootRoute(routeName: KSFlutterPageRouteName) {
-        let message = self.createMessageString(message: .changeRootRoute, data: routeName.rawValue)
-    
-        self.messageChannel.sendMessage(message) { reply in
-            // 来自flutter的返回信息
-        }
-    }
+//    func changeRootRoute(routeName: KSFlutterPageRouteName) {
+//        let message = self.createMessageString(message: .changeRootRoute, data: routeName.rawValue)
+//    
+//        self.messageChannel.sendMessage(message) { reply in
+//            // 来自flutter的返回信息
+//        }
+//    }
 }
 
 // 给flutter调用的方法
