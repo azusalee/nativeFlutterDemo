@@ -413,14 +413,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E480C2510308678615311B01 /* Pods-flutterTestApp.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9N64Q9SP7U;
+				DEVELOPMENT_TEAM = W2R873MT7Y;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = armv7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = flutterTestApp/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "需要访问本地网络权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -432,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ks.bussiness.test.flutterTestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.com.sfcar.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -444,14 +447,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D1359A12F8B5829019126CA0 /* Pods-flutterTestApp.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9N64Q9SP7U;
+				DEVELOPMENT_TEAM = W2R873MT7Y;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = armv7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = flutterTestApp/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "需要访问本地网络权限";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -463,7 +469,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ks.bussiness.test.flutterTestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.com.sfcar.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
