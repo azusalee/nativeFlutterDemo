@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.fluttertestapp.databinding.FragmentFirstBinding
+import com.idlefish.flutterboost.FlutterBoost
+import com.idlefish.flutterboost.FlutterBoostRouteOptions
 import io.flutter.embedding.android.FlutterActivity
 
 /**
@@ -36,10 +38,18 @@ class FirstFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-            FlutterChannelHandler.changeFlutterRootRoute(FlutterRoutes.message)
-            startActivity(FlutterActivity
-                .withCachedEngine("zeek_flutter_engine")
-                .build(this.requireContext()))
+            var options = FlutterBoostRouteOptions.Builder()
+                .pageName(FlutterRoutes.message)
+                .arguments(mapOf( "name" to "myName" ))
+                .requestCode(1111)
+                .build()
+
+            FlutterBoost.instance().open(options)
+
+            //FlutterChannelHandler.changeFlutterRootRoute(FlutterRoutes.message)
+            ////startActivity(FlutterActivity
+                //.withCachedEngine("zeek_flutter_engine")
+                //.build(this.requireContext()))
         }
     }
 

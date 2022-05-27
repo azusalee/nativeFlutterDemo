@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 import '../Constant/APPMethods.dart';
 import '../Manager/main_manager.dart';
 import '../Utils/ViewUtils.dart';
@@ -52,7 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
-    MainManager.mainManager.appChannel.pushNativePage(APPRoutes.home);
+    MainManager.mainManager.appChannel.pushNativePage(
+      APPRoutes.home,
+      {},
+      true
+    );
   }
 
   @override

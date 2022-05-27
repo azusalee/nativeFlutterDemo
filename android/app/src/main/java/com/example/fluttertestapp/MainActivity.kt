@@ -10,6 +10,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.fluttertestapp.databinding.ActivityMainBinding
+import com.idlefish.flutterboost.FlutterBoost
+import com.idlefish.flutterboost.FlutterBoostDelegate
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
@@ -24,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FlutterBoost.instance().setup(this.application,
+            MyBoostDelegate()
+        ) { engine ->
+            FlutterChannelHandler.setupEngine(engine)
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,20 +45,6 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
-
-        // 添加flutterEngine缓存，优化跳转flutter页时的体验
-        flutterEngine = FlutterEngine(this)
-        flutterEngine.navigationChannel.setInitialRoute("/message");
-        flutterEngine.dartExecutor.executeDartEntrypoint(
-            DartExecutor.DartEntrypoint.createDefault()
-        )
-
-        FlutterEngineCache
-            .getInstance()
-            .put("zeek_flutter_engine", flutterEngine)
-
-        // 绑定通道处理
-        FlutterChannelHandler.setupEngine(flutterEngine)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

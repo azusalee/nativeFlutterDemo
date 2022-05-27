@@ -7,14 +7,18 @@
 
 import UIKit
 import Flutter
-
+import flutter_boost
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        KSFlutterManager.sharedInstance.setup()
+        let delegate = BoostDelegate()
+        FlutterBoost.instance().setup(application, delegate: delegate) { engine in
+            KSFlutterManager.sharedInstance.setup(engine: engine!)
+        }
+        //KSFlutterManager.sharedInstance.setup()
         return true
     }
 

@@ -29,8 +29,9 @@ class ViewController: UIViewController {
     
     @objc
     func flutterButtonDidTap(_ sender: UIButton) {
-        let vc = KSFlutterManager.sharedInstance.createFlutterViewController(route: .message)
-        self.navigationController?.pushViewController(vc, animated: true)
+        KSFlutterManager.sharedInstance.pushFlutterPage(route: .message, arguments: ["name": "message"])
+        //let vc = KSFlutterManager.sharedInstance.createFlutterViewController(route: .message)
+        //self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

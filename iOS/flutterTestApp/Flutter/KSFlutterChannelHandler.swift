@@ -77,15 +77,7 @@ class KSFlutterChannelHandler {
                     }
                 }
                 result("")
-            } else if method == .pushFlutterPage {
-                if let pageName: String = call.arguments as? String {
-                    if let route = KSFlutterPageRouteName.init(rawValue: pageName) {
-                        let vc = KSFlutterManager.sharedInstance.createFlutterViewController(route: route)
-                        UIViewController.azl_topViewControllerInApp()?.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-                result("")
-            }
+            } 
             else {
                 // 没实现对应方法
                 result(FlutterMethodNotImplemented)

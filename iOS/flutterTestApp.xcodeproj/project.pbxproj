@@ -13,6 +13,7 @@
 		8C487A36283DE34A00BC96BC /* KSFlutterMessageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C487A35283DE34A00BC96BC /* KSFlutterMessageName.swift */; };
 		8C487A38283DE45300BC96BC /* KSFlutterPageRouteName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C487A37283DE45300BC96BC /* KSFlutterPageRouteName.swift */; };
 		8C487A3A283DE6AA00BC96BC /* KSFlutterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C487A39283DE6AA00BC96BC /* KSFlutterManager.swift */; };
+		8C588752284068B100A06DB1 /* BoostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C588751284068B100A06DB1 /* BoostDelegate.swift */; };
 		8C884B63283F322100C90B4E /* APPRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C884B62283F322100C90B4E /* APPRoutes.swift */; };
 		8C884B65283F374500C90B4E /* KSFlutterContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C884B64283F374500C90B4E /* KSFlutterContainerViewController.swift */; };
 		8C8FD5BA283B7D0000593A15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8FD5B9283B7D0000593A15 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		8C487A35283DE34A00BC96BC /* KSFlutterMessageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFlutterMessageName.swift; sourceTree = "<group>"; };
 		8C487A37283DE45300BC96BC /* KSFlutterPageRouteName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFlutterPageRouteName.swift; sourceTree = "<group>"; };
 		8C487A39283DE6AA00BC96BC /* KSFlutterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFlutterManager.swift; sourceTree = "<group>"; };
+		8C588751284068B100A06DB1 /* BoostDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostDelegate.swift; sourceTree = "<group>"; };
 		8C884B62283F322100C90B4E /* APPRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPRoutes.swift; sourceTree = "<group>"; };
 		8C884B64283F374500C90B4E /* KSFlutterContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSFlutterContainerViewController.swift; sourceTree = "<group>"; };
 		8C8FD5B6283B7D0000593A15 /* flutterTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutterTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 				8C487A37283DE45300BC96BC /* KSFlutterPageRouteName.swift */,
 				8C487A39283DE6AA00BC96BC /* KSFlutterManager.swift */,
 				8C884B64283F374500C90B4E /* KSFlutterContainerViewController.swift */,
+				8C588751284068B100A06DB1 /* BoostDelegate.swift */,
 			);
 			path = Flutter;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				8C487A38283DE45300BC96BC /* KSFlutterPageRouteName.swift in Sources */,
 				8C3CA429283CC518004EF716 /* KSFlutterChannelHandler.swift in Sources */,
 				8C487A36283DE34A00BC96BC /* KSFlutterMessageName.swift in Sources */,
+				8C588752284068B100A06DB1 /* BoostDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

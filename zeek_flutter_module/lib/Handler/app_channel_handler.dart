@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_boost/flutter_boost.dart';
 import '../Constant/APPMethods.dart';
 import 'dart:convert';
 import '../Constant/APPMessages.dart';
@@ -22,20 +23,20 @@ class AppChannelHandler {
       String messageName = dict["message"];
       print('信息名 $messageName');
       if (messageName == APPMessages.changeRootRoute) {
-        String data = dict["data"];
-        // 更换根页面
-        print('更换页面 $data');
-        // 不要过场动画
-        var pageBuilder = Routes.routes[data];
-        if (pageBuilder != null) {
-          PageRouteBuilder route = PageRouteBuilder(
-              transitionDuration: Duration(milliseconds: 0),
-              pageBuilder: (BuildContext context,
-                  Animation<double> animation,
-                  Animation<double> secondaryAnimation)
-              { return pageBuilder!(context); });
-          Routes.navigatorKey.currentState?.pushAndRemoveUntil(route, (route) => false);
-        }
+        // String data = dict["data"];
+        // // 更换根页面
+        // print('更换页面 $data');
+        // // 不要过场动画
+        // var pageBuilder = Routes.routes[data];
+        // if (pageBuilder != null) {
+        //   PageRouteBuilder route = PageRouteBuilder(
+        //       transitionDuration: Duration(milliseconds: 0),
+        //       pageBuilder: (BuildContext context,
+        //           Animation<double> animation,
+        //           Animation<double> secondaryAnimation)
+        //       { return pageBuilder!(context); });
+        //   Routes.navigatorKey.currentState?.pushAndRemoveUntil(route, (route) => false);
+        // }
         //Routes.navigatorKey.currentState?.pushNamedAndRemoveUntil(data, (route) => false);
       }
       return '收到Natvie数据';
@@ -47,13 +48,27 @@ class AppChannelHandler {
     });
   }
 
-  /// 让原生跳转指定页面
-  void pushNativePage(String nativeRoute) {
-    this.methodChannel.invokeMethod(APPMethods.pushNativePage, nativeRoute);
+  /// 告诉原生通道已经建立
+  void sendChannelIsSetup() {
+    this.messageChannel.send(FlutterMessages.channelSetup);
   }
 
-  /// 让原生跳指定flutter页面
-  void pushFlutterPage(String flutterRoute) {
-      this.methodChannel.invokeMethod(APPMethods.pushFlutterPage, flutterRoute);
+  /// 让原生跳转指定页面
+  void pushNativePage(String nativeRoute, Map<String, dynamic>? arguments, bool isAnimated) {
+    Map<String, dynamic> params = {
+      "isAnimated": isAnimated,
+      "isPresent": false
+    };
+    if (arguments != null) {
+      params.addAll(arguments!);
+    }
+
+    BoostNavigator.instance.push(
+        nativeRoute,
+        withContainer: true,
+        arguments: arguments,
+        opaque: true
+    );
   }
+
 }

@@ -10,13 +10,4 @@ class APPMethods {
   /// 返回数据数组
   static const String requestMessageList = 'requestMessageList';
 
-  /// 跳转原生页面
-  /// 带原生页面的路由字符串
-  /// 返回空字符串
-  static const String pushNativePage = 'pushNativePage';
-
-  /// 跳转Flutter页面
-  /// 带Flutter的路由字符串
-  /// 返回空字符串
-  static const String pushFlutterPage = 'pushFlutterPage';
 }

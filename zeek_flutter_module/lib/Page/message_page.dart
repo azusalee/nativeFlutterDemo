@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_boost/flutter_boost.dart';
+import 'package:zeek_flutter_module/Constant/Routes.dart';
 import '../Utils/ViewUtils.dart';
 import '../Manager/main_manager.dart';
 import '../Constant/APPMethods.dart';
@@ -114,7 +116,13 @@ class _MessagePageState extends State<MessagePage> {
   void _onTap(int index) {
     // item 点击回调
     print('$index 点击');
-    MainManager.mainManager.appChannel.pushFlutterPage("/home");
+    BoostNavigator.instance.push(
+      FlutterRoutes.home,
+      withContainer: false,
+      arguments: {"name": "myName"},
+      opaque: true
+    );
+    //MainManager.mainManager.appChannel.pushFlutterPage("/home");
   }
 
   /// 列表的item样式

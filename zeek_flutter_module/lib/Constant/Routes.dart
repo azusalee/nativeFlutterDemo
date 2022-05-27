@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import '../Page/my_home_page.dart';
-import '../Page/tasker_home_page.dart';
-import '../Page/message_page.dart';
 
-class Routes {
+class FlutterRoutes {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-  // 路由设定
-  static Map<String, WidgetBuilder> routes = {
-    "/home": (context) => MyHomePage(),
-    "/tasker_home": (context) => const TaskerHomePreview(),
-    "/message": (context) => MessagePage()
-  };
+  /// 主页
+  static const String home = '/flutter/home';
+  /// 消息页
+  static const String message = '/flutter/message';
+
 }

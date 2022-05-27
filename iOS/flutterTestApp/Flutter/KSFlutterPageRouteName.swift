@@ -10,7 +10,7 @@ import Foundation
 /// flutter路由名
 enum KSFlutterPageRouteName: String {
     /// 消息页
-    case message = "/message"
+    case message = "/flutter/message"
     /// 主页
-    case home = "/home"
+    case home = "/flutter/home"
 }
