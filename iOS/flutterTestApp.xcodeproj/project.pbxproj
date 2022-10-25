@@ -420,7 +420,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2R873MT7Y;
 				ENABLE_BITCODE = NO;
-				EXCLUDED_ARCHS = armv7;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = flutterTestApp/Info.plist;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "需要访问本地网络权限";
@@ -454,7 +454,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2R873MT7Y;
 				ENABLE_BITCODE = NO;
-				EXCLUDED_ARCHS = armv7;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = flutterTestApp/Info.plist;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "需要访问本地网络权限";
