@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       return PageRouteBuilder(
           settings: settings,
           pageBuilder: (_, __, ___) {
-            return Container();
+            return MyHomePage();
           }
       );
     },
