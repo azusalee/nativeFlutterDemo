@@ -6,6 +6,7 @@ import '../Manager/main_manager.dart';
 import '../Utils/ViewUtils.dart';
 import '../Constant/APPRoutes.dart';
 import '../View/check_box_form_item.dart';
+import '../View/input_form_item.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -80,6 +81,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   }
               ),
+              InputFormItem(model: FormItemModel(
+                  title: "标题标题标题", subTitle: "内容值", hint: "提示内容"
+              ), onChange: (result) {
+
+              })
             ],
           ),
         )),
