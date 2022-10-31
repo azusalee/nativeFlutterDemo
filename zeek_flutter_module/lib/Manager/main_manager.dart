@@ -10,5 +10,8 @@ class MainManager {
   /// 与app交互的通道处理类
   final AppChannelHandler appChannel;
 
+  /// 当前语言
+  String languageCode = "en";
+
   MainManager({required this.appChannel});
 }
